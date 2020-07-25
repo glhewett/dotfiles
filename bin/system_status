@@ -1,0 +1,29 @@
+#!/bin/sh
+
+OUTPUT="TIME=$(date +'%I:%M')"
+OUTPUT="DATE=$(date +'%m/%d/%y') ${OUTPUT}"
+OUTPUT="DAY=$(date +'%a') ${OUTPUT}"
+
+# BATTERY
+BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT0/capacity_level)
+
+if [ "$BATTERY_LEVEL" == "Normal" ]; then
+  BATTERY=$(cat /sys/class/power_supply/BAT0/capacity)
+  OUTPUT="BATTERY=${BATTERY}% $OUTPUT"
+else
+  OUTPUT="BATTERY=${BATTERY_LEVEL} $OUTPUT"
+fi
+
+# WIFI
+SSID=$(iw dev wlan0 info | grep ssid | sed 's/[[:blank:]]ssid \(.*\)$/\1/')
+
+if [ "$SSID" != "" ]; then
+  ADDR=$(ip -4 addr show wlan0 | grep -oP "(?<=inet ).*(?=/)")
+  OUTPUT="IP=${ADDR} WIFI=${SSID} ${OUTPUT}"
+fi
+
+# node name
+OUTPUT="HOST=$(uname -n) ${OUTPUT}"
+
+# echo "${SSID} ${BATTERY}% DAY=${DAY} DATE=${DATE} TIME=${TIME}"
+echo $OUTPUT
