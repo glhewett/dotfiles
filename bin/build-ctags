@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+if [ $(uname) = Darwin ]; then
+    echo "${0}: Skip on Mac"
+    exit 0;
+fi
+
+# load function
+. ${HOME}/.zsh/functions/check-version
+
+SCRIPT_VERSION=1
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+VERSION=5.8
+
+mkdir -p ~/local/src
+cd ~/local/src
+tar -zxf ~/dotfiles/src/ctags-${VERSION}.tar.gz
+cd ctags-${VERSION}
+./configure --prefix ${HOME}/local && make && make install
+
+updateVersion

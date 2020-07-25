@@ -1,0 +1,33 @@
+Plug 'chriskempson/vim-tomorrow-theme'  " default theme I use
+Plug 'airblade/vim-gitgutter' " shows git changes in the gutter
+Plug 'tpope/vim-vinegar' " enhancements to netrw integrations
+Plug 'ctrlpvim/ctrlp.vim' " fuzzy file search
+Plug 'editorconfig/editorconfig-vim' " obeys editorconfig
+Plug 'maksimr/vim-jsbeautify' " tools for beautifying js and json
+Plug 'rking/ag.vim' " uses the silver searcher for project wide searching
+Plug 'tpope/vim-dispatch' " async tasks
+Plug 'tpope/vim-dotenv'  " .env support
+Plug 'tpope/vim-vividchalk' " neat colors
+Plug 'vim-airline/vim-airline' " the bottom ui
+Plug 'vim-airline/vim-airline-themes' " bottom ui themes
+Plug 'tpope/vim-unimpaired' " shortcuts [q ]q
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'godlygeek/tabular'
+Plug 'groenewege/vim-less'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-liquid'
+Plug 'tpope/vim-speeddating'
+Plug 'xenoterracide/html.vim'
+Plug 'kana/vim-operator-user'
+Plug 'rhysd/vim-clang-format'
+Plug 'andypayne/vim-checkbox'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'vhdirk/vim-cmake'

@@ -1,0 +1,55 @@
+#!/bin/sh
+
+# this script will attept to setup an ssh tunnel for a local web service.
+# * start tunnel
+# * start forever sleep, checking state
+# * trap signal to exit cleanly
+
+if [ "${1}" != "" ]; then
+  LOCAL_PORT=${1}
+else
+  LOCAL_PORT=3000
+fi
+
+if [ "${2}" != "" ]; then
+  HOST=${2}
+elif [ "${TEAMSRV_TUNNEL_HOST}" != "" ]; then
+  HOST=${TEAMSRV_TUNNEL_HOST}
+else
+  HOST=ghewett-local.atemerge.com
+fi
+
+if [ "${TEAMSRV_TUNNEL_PORT}" != "" ]; then
+  REMOTE_PORT=$TEAMSRV_TUNNEL_PORT
+else
+  echo "TEAMSRV_TUNNEL_PORT should be set"
+  exit 1
+fi
+SOCKET_NAME=.${LOCAL_PORT}-tunnel-socket
+
+start_tunnel() {
+  ssh -M -S ${SOCKET_NAME} -fnNT -R ${REMOTE_PORT}:localhost:${LOCAL_PORT} ${HOST}
+}
+
+check_tunnel() {
+  ssh -S ${SOCKET_NAME} -O check ${HOST} 2> /dev/null
+}
+
+stop_tunnel() {
+  ssh -S ${SOCKET_NAME} -O exit ${HOST}
+  exit
+}
+
+trap "stop_tunnel" SIGHUP SIGINT SIGTERM
+
+start_tunnel
+
+while true; do
+  check_tunnel
+
+  if [ $? = "0" ]; then
+    sleep 60
+  else
+    exit
+  fi
+done

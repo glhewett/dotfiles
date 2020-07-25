@@ -1,0 +1,25 @@
+#!/usr/bin/env zsh
+
+if [ $(uname) = Darwin ]; then
+    echo "${0}: Skip on Mac"
+    exit 0;
+fi
+
+# load function
+. ${HOME}/.zsh/functions/check-version
+
+SCRIPT_VERSION=2
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+VERSION=2.7
+
+mkdir -p ~/local/src
+cd ~/local/src
+curl -L -O "https://github.com/tmux/tmux/releases/download/${VERSION}/tmux-${VERSION}.tar.gz"
+tar -zxf tmux-${VERSION}.tar.gz
+rm -f tmux-${VERSION}.tar.gz
+cd tmux-${VERSION}
+./configure --prefix ${HOME}/local && make && make install
+cd -
+
+updateVersion

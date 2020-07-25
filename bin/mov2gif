@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ORIGINAL_FILE=$1
+TEMPORARY_FILE=${ORIGINAL_FILE}.temp.gif
+DESTINATION_FILE=${ORIGINAL_FILE}.gif
+
+if [ -n "$1" ]
+then
+  ffmpeg -i $ORIGINAL_FILE -r 4 -pix_fmt rgb24 $DESTINATION_FILE
+  # convert -layers Optimize $TEMPORARY_FILE $DESTINATION_FILE
+  # rm $TEMPORARY_FILE
+else
+  echo "usage: $0 <mov file>"
+fi

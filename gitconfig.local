@@ -1,0 +1,16 @@
+[github]
+  user = glhewett
+[user]
+  email = greg@greghewett.com
+  name = Greg Hewett
+  signingkey = 1D05DEE58F7A6780
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[branch]
+  autosetuprebase = always
+[credential]
+  helper = !aws codecommit credential-helper $@
+  UseHttpPath = true

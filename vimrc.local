@@ -1,0 +1,29 @@
+set modelines=1
+set nowrap
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Netrw
+let g:netrw_banner = 0
+"
+" Markdown
+command! -nargs=* Wrap set wrap linebreak nolist tw=0
+"
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+"
+"" Airline
+let g:airline_powerline_fonts = 1
+"
+"" Color Scheme
+colorscheme Tomorrow-Night

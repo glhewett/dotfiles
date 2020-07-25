@@ -1,0 +1,5 @@
+touch ${HOME}/.check-version
+build-asdf
+build-tmux
+build-vim
+asdf plugin-update --all

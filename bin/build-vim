@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+if [ $(uname) = Darwin ]; then
+    echo "${0}: Skip on Mac"
+    exit 0;
+fi
+
+# load function
+. ${HOME}/.zsh/functions/check-version
+
+SCRIPT_VERSION=3
+VERSION=8.1.0998 
+checkVersion $(basename $0) $SCRIPT_VERSION
+mkdir -p ~/local/src
+cd ~/local/src
+curl -L -O "https://github.com/vim/vim/archive/v${VERSION}.tar.gz"
+tar -zxf v${VERSION}.tar.gz
+rm v${VERSION}.tar.gz
+cd vim-${VERSION}
+./configure --prefix ${HOME}/local && make && make install
+cd -
+updateVersion

@@ -1,0 +1,21 @@
+alias path='echo $PATH | tr -s ":" "\n"'
+alias backupdir="tar -zcvf \$1-`date +'%Y-%m-%d'`.tar.gz \$1"
+alias home="clear && cd \$1"
+alias add2path="export PATH=$PATH:$PWD"
+alias brews='brew list -1'
+alias start-memcached="memcached -v -m 256 -l 127.0.0.1 -p 11211"
+alias start-redis="/usr/local/bin/redis-server /usr/local/etc/redis.conf"
+alias start-mysql="mysql.server start"
+alias stop-mysql="mysql.server stop"
+alias serve='python -m SimpleHTTPServer 3200'
+alias pull='git pull origin master'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gd='git diff | less -r'
+alias gl='git pull'
+alias gp='git push'
+alias gst='git status -sb'
+alias keys='ssh-add -l'
+alias add-ssh-key='ssh-add -K ~/.ssh/id_ed25519'
+alias create-ssh-key='ssh-keygen -o -a 100 -t ed25519 -f id_ed25519 -C "greg@greghewett.com"'
