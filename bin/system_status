@@ -15,10 +15,10 @@ else
 fi
 
 # WIFI
-SSID=$(iw dev wlan0 info | grep ssid | sed 's/[[:blank:]]ssid \(.*\)$/\1/')
+SSID=$(iw dev wlp3s0 info | grep ssid | sed 's/[[:blank:]]ssid \(.*\)$/\1/')
 
 if [ "$SSID" != "" ]; then
-  ADDR=$(ip -4 addr show wlan0 | grep -oP "(?<=inet ).*(?=/)")
+  ADDR=$(ip -4 addr show wlp3s0 | grep -oP "(?<=inet ).*(?=/)")
   OUTPUT="IP=${ADDR} WIFI=${SSID} ${OUTPUT}"
 fi
 
