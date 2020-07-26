@@ -25,7 +25,7 @@ function checkVersion()
 
 function updateVersion()
 {
-  TMP_FILE=$(tempfile)
+  TMP_FILE=$(mktemp)
   grep -v $CHECK_VERSION_VAR_NAME "$CHECK_VERSION_FILE" > "$TMP_FILE"
   echo "$CHECK_VERSION_VAR_NAME=$CHECK_VERSION_VERSION_NUMBER" >> "$TMP_FILE"
   mv "$TMP_FILE" "$CHECK_VERSION_FILE"

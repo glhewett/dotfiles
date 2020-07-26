@@ -11,6 +11,8 @@
   required = true
 [branch]
   autosetuprebase = always
+[pull]
+  rebase = true
 [credential]
   helper = !aws codecommit credential-helper $@
   UseHttpPath = true

@@ -9,7 +9,8 @@ fi
 . ${HOME}/.zsh/functions/check-version
 
 SCRIPT_VERSION=3
-VERSION=8.1.0998 
+VERSION=8.2.0012 
+
 checkVersion $(basename $0) $SCRIPT_VERSION
 mkdir -p ~/local/src
 cd ~/local/src
