@@ -11,12 +11,13 @@ fi
 SCRIPT_VERSION=1
 checkVersion $(basename $0) $SCRIPT_VERSION
 
-VERSION=5.8
-
-mkdir -p ~/local/src
-cd ~/local/src
-tar -zxf ~/dotfiles/src/ctags-${VERSION}.tar.gz
-cd ctags-${VERSION}
-./configure --prefix ${HOME}/local && make && make install
+mkdir -p ~/local/src || exit 1
+cd ~/local/src || exit 1
+git clone git@github.com:universal-ctags/ctags.git || exit 1
+cd ctags || exit 1
+./autogen.sh || exit 1
+./configure --prefix ${HOME}/local || exit 1
+make || exit 1
+make install || exit 1
 
 updateVersion
