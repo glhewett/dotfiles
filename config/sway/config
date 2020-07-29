@@ -16,7 +16,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ################################################################################
 # Output
 output eDP-1 {
-  scale 2
+  scale 1.75
   bg #a0a0a0 solid_color
 }
 

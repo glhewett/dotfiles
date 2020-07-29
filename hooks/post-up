@@ -3,4 +3,6 @@ build-tmux
 build-vim
 build-ctags
 build-asdf
+build-ag
 asdf plugin-update --all
+
