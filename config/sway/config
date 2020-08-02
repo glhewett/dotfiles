@@ -17,14 +17,14 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Output
 output eDP-1 {
   scale 1.75
-  bg #a0a0a0 solid_color
+  bg #171717 solid_color
 }
 
 exec swayidle -w \
-  timeout 300 'swaylock -f -c 000000' \
+  timeout 300 'swaylock -f -c 999999' \
   timeout 600 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
-  before-sleep 'swaylock -f -c 000000'
+  before-sleep 'swaylock -f -c 999999'
 
 ################################################################################
 # Input
@@ -35,6 +35,17 @@ input "0:0:Atmel_maXTouch_Touchpad" {
   middle_emulation enabled
   tap_button_map lrm
 }
+
+################################################################################
+# Windows
+default_border pixel 1
+default_floating_border normal
+gaps inner 0
+gaps outer 0
+
+################################################################################
+# Behavior
+bindswitch --reload --locked lid:on exec swaylock -f -c 999999
 
 ################################################################################
 # Key Maps
@@ -56,7 +67,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Return exec $term
 bindsym $mod+space focus mode_toggle
 bindsym $mod+minus scratchpad show
-bindsym $mod+Backspace exec swaylock -f -c 171717
+bindsym $mod+Backspace exec swaylock -f -c 999999
 
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -120,41 +131,37 @@ floating_modifier $mod normal
 ################################################################################
 # Resizing
 mode "resize" {
-  # left will shrink the containers width
-  # right will grow the containers width
-  # up will shrink the containers height
-  # down will grow the containers height
-  bindsym $left resize shrink width 10px
-  bindsym $down resize grow height 10px
-  bindsym $up resize shrink height 10px
-  bindsym $right resize grow width 10px
+# left will shrink the containers width
+# right will grow the containers width
+# up will shrink the containers height
+# down will grow the containers height
+    bindsym $left resize shrink width 10px
+        bindsym $down resize grow height 10px
+        bindsym $up resize shrink height 10px
+        bindsym $right resize grow width 10px
 
-  # Ditto, with arrow keys
-  bindsym Left resize shrink width 10px
-  bindsym Down resize grow height 10px
-  bindsym Up resize shrink height 10px
-  bindsym Right resize grow width 10px
+# Ditto, with arrow keys
+        bindsym Left resize shrink width 10px
+        bindsym Down resize grow height 10px
+        bindsym Up resize shrink height 10px
+        bindsym Right resize grow width 10px
 
-  # Return to default mode
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
+# Return to default mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
 }
 
 bar {
-  position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while system_status; do sleep 5; done
-    # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    position top
+    status_command while system_status; do sleep 1; done
+    font Inconsolata 12
 
     colors {
         statusline #171717
-        background #ececec
-        inactive_workspace #00000000 #32323200 #5c5c5c
+        background #e9e9e9
+        inactive_workspace #171717 #e9e9e9 #999999
     }
 }
 
-bindswitch lid:toggle exec swaylock -f -c 'ecececec'
 
 include /etc/sway/config.d/*
