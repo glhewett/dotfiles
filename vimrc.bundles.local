@@ -2,7 +2,6 @@ Plug 'airblade/vim-gitgutter' " shows git changes in the gutter
 Plug 'andypayne/vim-checkbox'
 Plug 'chriskempson/vim-tomorrow-theme'  " default theme I use
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'editorconfig/editorconfig-vim' " obeys editorconfig
 Plug 'godlygeek/tabular'
 Plug 'groenewege/vim-less'
