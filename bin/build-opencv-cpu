@@ -1,0 +1,51 @@
+#!/usr/bin/env zsh
+
+if [ $(uname) = Darwin ]; then
+    echo "${0}: Skip on Mac"
+    exit 0;
+fi
+
+# load function
+. ${HOME}/.zsh/functions/check-version
+
+SCRIPT_VERSION=1
+VERSION=4.4.0
+
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+mkdir -p ~/local/src || exit 1
+cd ~/local/src || exit 1
+
+# download opencv
+curl -L -O "https://github.com/opencv/opencv/archive/${VERSION}.tar.gz"
+tar -zxf ${VERSION}.tar.gz || exit 1
+rm ${VERSION}.tar.gz || exit 1
+
+# download opencv_contrib 
+curl -L -O "https://github.com/opencv/opencv_contrib/archive/${VERSION}.tar.gz"
+tar -zxf ${VERSION}.tar.gz || exit 1
+rm ${VERSION}.tar.gz || exit 1
+
+# change to build directory
+mkdir -p opencv-${VERSION}/build || exit 1
+cd opencv-${VERSION}/build || exit 1
+
+# configure
+cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-${VERSION}/modules \
+      -DCMAKE_INSTALL_PREFIX=~/local \
+      -DCMAKE_BUILD_TYPE=RELEASE \
+      -DINSTALL_C_EXAMPLES=OFF \
+      -DINSTALL_PYTHON_EXAMPLES=OFF \
+      -DBUILD_EXAMPLES=OFF \
+      -DOPENCV_GENERATE_PKGCONFIG=ON \
+      -DWITH_QT=ON \
+      -DWITH_OPENGL=ON \
+      -DWITH_TBB=ON \
+      -DWITH_V4L=ON ..
+
+# build
+make -j5 || exit 1
+make install || exit 1
+
+# finish
+updateVersion

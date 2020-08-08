@@ -1,8 +1,10 @@
 touch ${HOME}/.check-version
+
+asdf plugin-update --all
+asdf install
+
 build-tmux
 build-vim
 build-ctags
 build-asdf
 build-ag
-asdf plugin-update --all
-
