@@ -27,6 +27,13 @@ tar -zxf ${VERSION}.tar.gz || exit 1
 rm ${VERSION}.tar.gz || exit 1
 
 # change to build directory
+BUILD_DIR=opencv-${VERSION}/build
+
+if [ -d $BUILD_DIR ]; then
+    echo "removing old build directory"
+    rm -rf $BUILD_DIR
+fi
+
 mkdir -p opencv-${VERSION}/build || exit 1
 cd opencv-${VERSION}/build || exit 1
 
@@ -34,8 +41,8 @@ cd opencv-${VERSION}/build || exit 1
 cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-${VERSION}/modules \
       -DCMAKE_INSTALL_PREFIX=~/local \
       -DCMAKE_BUILD_TYPE=RELEASE \
-      -DINSTALL_C_EXAMPLES=OFF \
-      -DINSTALL_PYTHON_EXAMPLES=OFF \
+      -DINSTALL_C_EXAMPLES=ON \
+      -DINSTALL_PYTHON_EXAMPLES=ON \
       -DBUILD_EXAMPLES=OFF \
       -DOPENCV_GENERATE_PKGCONFIG=ON \
       -DWITH_QT=ON \
