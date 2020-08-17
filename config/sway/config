@@ -29,24 +29,34 @@ input "0:0:Atmel_maXTouch_Touchpad" {
 ################################################################################
 # Idle
 exec swayidle -w \
-  timeout 300 'swaylock -f -c 999999fa' \
-  timeout 600 'swaymsg "output * dpms off"' \
+  timeout 300 'swaylock -f -c 999999f9' \
+  timeout 100 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
-  before-sleep 'swaylock -f -c 999999fa'
+  before-sleep 'swaylock -f -c 999999f9'
 
 ################################################################################
-# Windows
+# workspaces
 default_border pixel 1
 default_floating_border normal
+workspace_layout tabbed
+default_orientation auto
 gaps inner 0
 gaps outer 0
+font pango:Inconsolata 10
+bindsym $search+space           floating toggle
+
 
 ################################################################################
 # Behavior
-bindswitch --reload --locked lid:on exec swaylock -f -c 999999fa
+bindswitch --reload --locked lid:on exec swaylock -f -c 999999f9
 
-# alt tab will browse through scratchpad
-bindsym $alt+tab scratchpad show
+################################################################################
+# Launch Apps
+bindsym $search+b           exec $browser
+bindsym $search+t           exec $term
+bindsym $search+i           exec inkscape
+bindsym $search+d           exec dia
+bindsym $search+g           exec gimp
 
 ################################################################################
 # Key Maps
@@ -54,99 +64,53 @@ bindsym $alt+tab scratchpad show
 # bindsym f2 exec swaynag -m 'Forward'
 # bindsym f3 exec swaynag -m 'Reload'
 bindsym f4 fullscreen
-bindsym f5 floating toggle
-bindsym f6 exec brightnessctl --device intel_backlight set 5%-
+bindsym f5 floating toggle bindsym f6 exec brightnessctl --device intel_backlight set 5%-
 bindsym f7 exec brightnessctl --device intel_backlight set 5%+
 bindsym f8 exec pamixer -t
 bindsym f9 exec pamixer -d 2
 bindsym f10 exec pamixer -i 2
 
-bindsym $search+Left focus left
-bindsym $search+Down focus down
-bindsym $search+Up focus up
-bindsym $search+Right focus right
-bindsym $search+Return exec $term
-bindsym $search+space focus mode_toggle
-bindsym $search+minus scratchpad show
-bindsym $search+Backspace exec swaylock -f -c 999999fa
+# scratchpad
+bindsym $search+m move scratchpad
+bindsym $alt+tab scratchpad show
 
+# lock screen
+bindsym $search+Backspace exec swaylock -f -c 999999f9
 
-
-# workspace management
-bindsym Control+Right move container to workspace 2
-bindsym Control+Left move container to workspace 1
-
-# application management
-#bindsys Mod1+tab scratchpad show
-
-
-bindsym $search+a focus parent
-bindsym $search+b splith
-# bindsym $search+c exec echo -n "hi"
-bindsym $search+d exec $menu
-bindsym $search+e layout toggle split
+# move and focus
+bindsym $search+$down           focus down
+bindsym $search+$up             focus up
+bindsym $search+$right          focus right
+bindsym $search+$left           focus left
+bindsym $search+Shift+$left     move left
+bindsym $search+Shift+$down     move down
+bindsym $search+Shift+$up       move up
+bindsym $search+Shift+$right    move right
+bindsym $search+a               focus parent
 bindsym $search+f fullscreen
-# bindsym $search+g exec echo -n "hi"
-bindsym $search+h focus left
-# bindsym $search+i exec echo -n "hi"
-bindsym $search+j focus down
-bindsym $search+k focus up
-bindsym $search+l focus right
-bindsym $search+r mode "resize"
-bindsym $search+s layout stacking
-bindsym $search+v splitv
-bindsym $search+w layout tabbed
 
-bindsym $search+Shift+Left move left
-bindsym $search+Shift+Down move down
-bindsym $search+Shift+Up move up
-bindsym $search+Shift+Right move right
-bindsym $search+Shift+space floating toggle
-bindsym $search+Shift+minus move scratchpad
+#bindsym $search+b splith
+#bindsym $search+e layout toggle split
+#bindsym $search+s layout stacking
+#bindsym $search+v splitv
+#bindsym $search+w layout tabbed
 
-bindsym $search+Shift+1 move container to workspace 1
-bindsym $search+Shift+2 move container to workspace 2
-bindsym $search+Shift+3 move container to workspace 3
-bindsym $search+Shift+4 move container to workspace 4
-bindsym $search+Shift+5 move container to workspace 5
-bindsym $search+Shift+6 move container to workspace 6
-bindsym $search+Shift+7 move container to workspace 7
-bindsym $search+Shift+8 move container to workspace 8
-bindsym $search+Shift+9 move container to workspace 9
-bindsym $search+Shift+0 move container to workspace 10
 
-bindsym $search+Shift+b exec $browser
-bindsym $search+Shift+c reload
-bindsym $search+Shift+e exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'
-bindsym $search+Shift+h move left
-bindsym $search+Shift+j move down
-bindsym $search+Shift+k move up
-bindsym $search+Shift+l move right
+bindsym $search+Shift+c         reload
+bindsym $search+Shift+e         exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'
 bindsym $search+Shift+q kill
 
 floating_modifier $search normal
 
-
-
 ################################################################################
 # Resizing
+bindsym $search+r mode "resize"
+
 mode "resize" {
-# left will shrink the containers width
-# right will grow the containers width
-# up will shrink the containers height
-# down will grow the containers height
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
-
-# Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-# Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -154,9 +118,9 @@ mode "resize" {
 
 bar {
     position top
-    status_command while system_status; do sleep 1; done
+    status_command while system_status; do sleep 5; done
     # status_command i3status
-    font Inconsolata 12
+    font Inconsolata 10
 
     colors {
         statusline #171717
