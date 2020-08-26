@@ -64,15 +64,16 @@ bindsym $search+g           exec gimp
 # bindsym f2 exec swaynag -m 'Forward'
 # bindsym f3 exec swaynag -m 'Reload'
 bindsym f4 fullscreen
-bindsym f5 floating toggle bindsym f6 exec brightnessctl --device intel_backlight set 5%-
+bindsym f5 floating toggle
+bindsym f6 exec brightnessctl --device intel_backlight set 5%-
 bindsym f7 exec brightnessctl --device intel_backlight set 5%+
 bindsym f8 exec pamixer -t
 bindsym f9 exec pamixer -d 2
 bindsym f10 exec pamixer -i 2
 
 # scratchpad
-bindsym $search+m move scratchpad
-bindsym $alt+tab scratchpad show
+# bindsym $search+m move scratchpad
+# bindsym $alt+tab scratchpad show
 
 # lock screen
 bindsym $search+Backspace exec swaylock -f -c 999999f9
@@ -88,6 +89,8 @@ bindsym $search+Shift+$up       move up
 bindsym $search+Shift+$right    move right
 bindsym $search+a               focus parent
 bindsym $search+f fullscreen
+bindsym $alt+tab                focus right
+bindsym Shift+$alt+tab          focus left
 
 #bindsym $search+b splith
 #bindsym $search+e layout toggle split
