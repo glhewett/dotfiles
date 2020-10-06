@@ -1,28 +1,26 @@
 # https://github.com/tmcdonell/config-alacritty/blob/master/alacritty.yml
-env:
-    TERM: xterm-256color
 window:
   dimensions:
-    columns: 0
-    lines: 0
+    columns: 120
+    lines: 48
   padding:
     x: 0
     y: 0
   dynamic_padding: true
-  decorations: none
-  startup_mode: Maximized
+  decorations: full
+  startup_mode: Windowed
   dynamic_title: true
 scrolling:
   history: 0
   multiplier: 3
 font:
   normal:
-    family: Inconsolata
+    family: Inconsolata for Powerline
   bold:
-    family: Inconsolata
+    family: Inconsolata for Powerline
   italic:
-    family: Inconsolata
-  size: 14.0
+    family: Inconsolata for Powerline
+  size: 22.0
   offset:
     x: 0
     y: 0
@@ -31,35 +29,6 @@ font:
     y: 0
   use_thin_strokes: true
 draw_bold_text_with_bright_colors: false
-
-# Base16 Tomorrow - alacritty color config
-# Chris Kempson (http://chriskempson.com)
-colors:
-  primary:
-    background: '0xffffff'
-    foreground: '0x4d4d4c'
-  cursor:
-    text: '0xffffff'
-    cursor: '0x4d4d4c'
-  normal:
-    black:   '0xffffff'
-    red:     '0xc82829'
-    green:   '0x718c00'
-    yellow:  '0xeab700'
-    blue:    '0x4271ae'
-    magenta: '0x8959a8'
-    cyan:    '0x3e999f'
-    white:   '0x4d4d4c'
-  bright:
-    black:   '0x8e908c'
-    red:     '0xf5871f'
-    green:   '0xe0e0e0'
-    yellow:  '0xd6d6d6'
-    blue:    '0x969896'
-    magenta: '0x282a2e'
-    cyan:    '0xa3685a'
-    white:   '0x1d1f21'
-
 bell:
   animation: EaseOutExpo
   color: '0xffffff'
@@ -135,25 +104,27 @@ mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
   hide_when_typing: true
-
   url:
     launcher:
-      program: firefox
-      args: []
+      program: open
+      args: ["-a Firefox"]
+
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
   save_to_clipboard: false
+
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 
 cursor:
   style: Block
   unfocused_hollow: true
+
 live_config_reload: true
 
 shell:
-  program: /usr/bin/zsh
-  args: []
+  program: /usr/bin/env
+  args: ["zsh"]
 
 debug:
   render_timer: false
