@@ -1,7 +1,7 @@
 [github]
   user = glhewett
 [user]
-  email = greg@greghewett.com
+  email = glh@twoutah.com
   name = Greg Hewett
   signingkey = 1D05DEE58F7A6780
 [filter "lfs"]
