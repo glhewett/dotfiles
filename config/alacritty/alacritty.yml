@@ -8,9 +8,9 @@ window:
   padding:
     x: 0
     y: 0
-  dynamic_padding: false
-  decorations: full
-  startup_mode: Windowed
+  dynamic_padding: true
+  decorations: none
+  startup_mode: Maximized
   dynamic_title: true
 scrolling:
   history: 0
@@ -66,10 +66,10 @@ bell:
   duration: 0
 background_opacity: 1.0
 key_bindings:
-  - { key: V,        mods: Command,       action: Paste                        }
-  - { key: C,        mods: Command,       action: Copy                         }
-  - { key: Q,        mods: Command,       action: Quit                         }
-  - { key: N,        mods: Command,       action: SpawnNewInstance             }
+  - { key: V,        mods: Control,       action: Paste                        }
+  - { key: C,        mods: Control,       action: Copy                         }
+  - { key: W,        mods: Control,       action: Quit                         }
+  - { key: F2,                            action: SpawnNewInstance             }
   - { key: Return,   mods: Command,       action: ToggleFullscreen             }
   - { key: Home,                          chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                          chars: "\x1b[H",   mode: ~AppCursor  }
