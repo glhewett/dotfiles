@@ -22,7 +22,7 @@ Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired' " shortcuts [q ]q
 Plug 'tpope/vim-vinegar' " enhancements to netrw integrations
-Plug 'glhewett/vim-cmake'
 Plug 'vim-airline/vim-airline' " the bottom ui
 Plug 'vim-airline/vim-airline-themes' " bottom ui themes
 Plug 'xenoterracide/html.vim'
+Plug 'ilyachur/cmake4vim'
