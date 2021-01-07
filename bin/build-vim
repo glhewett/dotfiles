@@ -1,14 +1,9 @@
 #!/usr/bin/env zsh
 
-if [ $(uname) = Darwin ]; then
-    echo "${0}: Skip on Mac"
-    exit 0;
-fi
-
 # load function
 . ${HOME}/.zsh/functions/check-version
 
-SCRIPT_VERSION=3
+SCRIPT_VERSION=4
 VERSION=8.2.0012 
 
 checkVersion $(basename $0) $SCRIPT_VERSION

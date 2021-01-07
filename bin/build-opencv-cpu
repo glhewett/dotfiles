@@ -1,15 +1,10 @@
 #!/usr/bin/env zsh
 
-if [ $(uname) = Darwin ]; then
-    echo "${0}: Skip on Mac"
-    exit 0;
-fi
-
 # load function
 . ${HOME}/.zsh/functions/check-version
 
-SCRIPT_VERSION=1
-VERSION=4.4.0
+SCRIPT_VERSION=2
+VERSION=4.5.0
 
 checkVersion $(basename $0) $SCRIPT_VERSION
 
@@ -38,15 +33,24 @@ mkdir -p opencv-${VERSION}/build || exit 1
 cd opencv-${VERSION}/build || exit 1
 
 # configure
-cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-${VERSION}/modules \
-      -DCMAKE_INSTALL_PREFIX=~/local \
-      -DCMAKE_BUILD_TYPE=RELEASE \
-      -DINSTALL_C_EXAMPLES=ON \
-      -DINSTALL_PYTHON_EXAMPLES=ON \
+cmake \
+      -DBUILD_DOCS=OFF \
       -DBUILD_EXAMPLES=OFF \
+      -DBUILD_EXAMPLES=OFF \
+      -DBUILD_PERF_TESTS=OFF \
+      -DBUILD_TESTS=OFF \
+      -DBUILD_opencv_apps=OFF \
+      -DBUILD_opencv_datasets=OFF \
+      -DBUILD_opencv_java_bindings_generator=OFF \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_INSTALL_PREFIX=~/local \
+      -DENABLE_FAST_MATH=ON \
+      -DINSTALL_C_EXAMPLES=OFF \
+      -DINSTALL_PYTHON_EXAMPLES=OFF \
+      -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-${VERSION}/modules \
       -DOPENCV_GENERATE_PKGCONFIG=ON \
-      -DWITH_QT=ON \
       -DWITH_OPENGL=ON \
+      -DWITH_QT=ON \
       -DWITH_TBB=ON \
       -DWITH_V4L=ON ..
 

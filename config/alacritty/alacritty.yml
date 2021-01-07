@@ -1,10 +1,11 @@
 # https://github.com/tmcdonell/config-alacritty/blob/master/alacritty.yml
+# https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 env:
   TERM: xterm-256color
 window:
   dimensions:
-    columns: 120
-    lines: 48
+    columns: 0
+    lines: 0
   padding:
     x: 0
     y: 0
@@ -37,18 +38,25 @@ bell:
   duration: 0
 background_opacity: 1.0
 key_bindings:
-  - { key: V,        mods: Control,       action: Paste                        }
-  - { key: C,        mods: Control,       action: Copy                         }
-  - { key: W,        mods: Control,       action: Quit                         }
-  - { key: F2,                            action: SpawnNewInstance             }
+  - { key: V,        mods: Command,       action: Paste                        }
+  - { key: C,        mods: Command,       action: Copy                         }
+  - { key: W,        mods: Command,       action: Quit                         }
+  - { key: N,        mods: Command,       action: SpawnNewInstance             }
   - { key: Return,   mods: Command,       action: ToggleFullscreen             }
+  - { key: Equals,   mods: Command,       action: IncreaseFontSize             }
+  - { key: Minus,    mods: Command,       action: DecreaseFontSize             }
+  - { key: Minus,    mods: Command|Shift, action: ResetFontSize                }
+  - { key: Comma,    mods: Command,       command: { program: "open", args: ["~/.config/alacritty/alacritty.yml"]}}
+  - { key: Space,    mods: Alt,           chars: " "                           }
+  - { key: Back,     mods: Super,         chars: "\x15"                        } # delete word/line
+  - { key: Left,     mods: Alt,           chars: "\x1bb"                       } # one word left
+  - { key: Right,    mods: Alt,           chars: "\x1bf"                       } # one word right
+  - { key: Left,     mods: Command,       chars: "\x1bOH",   mode: AppCursor   } # Home
+  - { key: Right,    mods: Command,       chars: "\x1bOF",   mode: AppCursor   } # End
   - { key: Home,                          chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                          chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                           chars: "\x1bOF",   mode: AppCursor   }
   - { key: End,                           chars: "\x1b[F",   mode: ~AppCursor  }
-  - { key: Equals,   mods: Command,       action: IncreaseFontSize             }
-  - { key: Minus,    mods: Command,       action: DecreaseFontSize             }
-  - { key: Minus,    mods: Command|Shift, action: ResetFontSize                }
   - { key: PageUp,   mods: Shift,         chars: "\x1b[5;2~"                   }
   - { key: PageUp,   mods: Control,       chars: "\x1b[5;5~"                   }
   - { key: PageUp,                        chars: "\x1b[5~"                     }
