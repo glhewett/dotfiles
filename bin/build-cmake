@@ -3,22 +3,23 @@
 # load function
 . ${HOME}/.zsh/functions/check-version
 
-SCRIPT_VERSION=1
+VERSION=3.19.2
+SCRIPT_VERSION=2
 checkVersion $(basename $0) $SCRIPT_VERSION
 
-VERSION=3.18.2
-
-mkdir -p "$HOME/Downloads" || exit 1
-cd "$HOME/Downloads" || exit 1
+mkdir -p ~/local/src || exit 1
+cd ~/local/src || exit 1
 
 if [ ! -e cmake-${VERSION}.tar.gz ]
 then
-  wget https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}.tar.gz
+  curl -L -O https://github.com/Kitware/CMake/releases/download/v${VERSION}/cmake-${VERSION}.tar.gz
 fi
 
 tar -zxvf cmake-${VERSION}.tar.gz || exit 1
+rm cmake-${VERSION}.tar.gz || exit 1
 cd cmake-${VERSION} || exit 1
 ./bootstrap --prefix=$HOME/local || exit 1
-make || exit 1
+make -j5 || exit 1
 make install || exit 1
+
 updateVersion

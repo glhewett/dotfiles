@@ -1,18 +1,14 @@
 #!/usr/bin/env zsh
-
-# load function
 . ${HOME}/.zsh/functions/check-version
-
-SCRIPT_VERSION=4
-VERSION=8.2.0012 
-
+SCRIPT_VERSION=6
+BRANCH=v8.2.2306 
 checkVersion $(basename $0) $SCRIPT_VERSION
-mkdir -p ~/local/src
-cd ~/local/src
-curl -L -O "https://github.com/vim/vim/archive/v${VERSION}.tar.gz"
-tar -zxf v${VERSION}.tar.gz
-rm v${VERSION}.tar.gz
-cd vim-${VERSION}
-./configure --prefix ${HOME}/local && make && make install
-cd -
+mkdir -p ~/local/src || exit 1
+cd ~/local/src || exit 1
+git clone --branch ${BRANCH} https://github.com/vim/vim.git
+cd vim/src || exit 1
+make distclean || exit 1
+./configure --prefix ${HOME}/local  || exit 1
+make -j5 || exit 1
+make install || exit 1
 updateVersion
