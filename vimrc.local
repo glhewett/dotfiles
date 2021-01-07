@@ -1,3 +1,6 @@
+" do not connect to x server
+set clipboard=exclude:.*
+
 set modelines=1
 set nowrap
 nnoremap <C-j> <C-w>j
