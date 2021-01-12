@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+if [ $(uname) = Darwin ]; then
+    echo "${0}: Skip on Mac"
+    exit 0;
+fi
+
+# load function
+. ${HOME}/.zsh/functions/check-version
+
+SCRIPT_VERSION=1
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+mkdir -p ~/local/src
+cd ~/local/src
+git clone --branch 0.11.0 --recursive git@github.com:swaywm/wlroots.git
+cd wlroots
+meson build
+ninja -C build
+
+updateVersion

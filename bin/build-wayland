@@ -1,0 +1,46 @@
+#!/usr/bin/env zsh
+
+if [ $(uname) = Darwin ]; then
+    echo "${0}: Skip on Mac"
+    exit 0;
+fi
+
+# load function
+. ${HOME}/.zsh/functions/check-version
+
+SCRIPT_VERSION=1
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+# let's work in $HOME/local/src
+mkdir -p $HOME/local/src || exit 1
+cd $HOME/local/src || exit 1
+
+sudo apt-get install -y \
+    doxygen \
+    graphviz \
+    libedit-dev \
+    libexpat1-dev \
+    libgcrypt20-dev \
+    libglib2.0-dev \
+    libgudev-1.0-dev \
+    libmtdev-dev \
+    libpam0g-dev \
+    libpciaccess-dev \
+    libpng-dev \
+    libudev-dev \
+    libunwind-dev \
+    libxfont-dev \
+    libxml2-dev \
+    linux-libc-dev \
+    llvm-dev \
+    meson \
+    ninja-build \
+    python-mako \
+    x11proto-scrnsaver-dev \
+    xmlto || exit 1
+
+git clone --branch 1.18.0 https://gitlab.freedesktop.org/wayland/wayland || exit 1
+cd wayland || exit 1
+meson build/ --prefix=$HOME/local || exit 1
+
+updateVersion
