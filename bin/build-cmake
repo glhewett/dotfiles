@@ -3,9 +3,9 @@
 # load function
 . ${HOME}/.zsh/functions/check-version
 
-VERSION=3.19.2
 SCRIPT_VERSION=2
 checkVersion $(basename $0) $SCRIPT_VERSION
+VERSION=3.19.2
 
 mkdir -p ~/local/src || exit 1
 cd ~/local/src || exit 1
