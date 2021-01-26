@@ -38,21 +38,9 @@ bell:
   duration: 0
 background_opacity: 1.0
 key_bindings:
-  - { key: V,        mods: Command,       action: Paste                        }
-  - { key: C,        mods: Command,       action: Copy                         }
-  - { key: W,        mods: Command,       action: Quit                         }
-  - { key: N,        mods: Command,       action: SpawnNewInstance             }
-  - { key: Return,   mods: Command,       action: ToggleFullscreen             }
-  - { key: Equals,   mods: Command,       action: IncreaseFontSize             }
-  - { key: Minus,    mods: Command,       action: DecreaseFontSize             }
-  - { key: Minus,    mods: Command|Shift, action: ResetFontSize                }
-  - { key: Comma,    mods: Command,       command: { program: "open", args: ["~/.config/alacritty/alacritty.yml"]}}
-  - { key: Space,    mods: Alt,           chars: " "                           }
-  - { key: Back,     mods: Super,         chars: "\x15"                        } # delete word/line
-  - { key: Left,     mods: Alt,           chars: "\x1bb"                       } # one word left
-  - { key: Right,    mods: Alt,           chars: "\x1bf"                       } # one word right
-  - { key: Left,     mods: Command,       chars: "\x1bOH",   mode: AppCursor   } # Home
-  - { key: Right,    mods: Command,       chars: "\x1bOF",   mode: AppCursor   } # End
+  - { key: W,        mods: Control,       action: Quit                         }
+  - { key: N,        mods: Alt,           action: SpawnNewInstance             }
+  - { key: Return,   mods: Alt,       action: ToggleFullscreen             }
   - { key: Home,                          chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                          chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                           chars: "\x1bOF",   mode: AppCursor   }

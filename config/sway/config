@@ -1,7 +1,7 @@
 ################################################################################
 # Variables
 set $alt     Mod1
-set $search  Mod4
+set $window  Mod4
 set $left     h
 set $down     j
 set $up       k
@@ -12,6 +12,11 @@ set $browser  firefox
 ################################################################################
 # Output
 output eDP-1 {
+  scale 1.75
+  bg #171717 solid_color
+}
+
+output HDMI-A-3 {
   scale 1.75
   bg #171717 solid_color
 }
@@ -43,7 +48,7 @@ default_orientation auto
 gaps inner 0
 gaps outer 0
 font pango:Inconsolata 10
-bindsym $search+space           floating toggle
+bindsym $window+space           floating toggle
 
 
 ################################################################################
@@ -52,11 +57,8 @@ bindswitch --reload --locked lid:on exec swaylock -f -c 999999f9
 
 ################################################################################
 # Launch Apps
-bindsym $search+b           exec $browser
-bindsym $search+t           exec $term
-bindsym $search+i           exec inkscape
-bindsym $search+d           exec dia
-bindsym $search+g           exec gimp
+bindsym $window+b        exec $browser
+bindsym $window+t        exec $term
 
 ################################################################################
 # Key Maps
@@ -72,42 +74,45 @@ bindsym f9 exec pamixer -d 2
 bindsym f10 exec pamixer -i 2
 
 # scratchpad
-# bindsym $search+m move scratchpad
-# bindsym $alt+tab scratchpad show
+# bindsym $window+m move scratchpad
+# bindsym $window+tab scratchpad show
 
 # lock screen
-bindsym $search+Backspace exec swaylock -f -c 999999f9
+bindsym $window+Backspace exec swaylock -f -c 999999f9
 
 # move and focus
-bindsym $search+$down           focus down
-bindsym $search+$up             focus up
-bindsym $search+$right          focus right
-bindsym $search+$left           focus left
-bindsym $search+Shift+$left     move left
-bindsym $search+Shift+$down     move down
-bindsym $search+Shift+$up       move up
-bindsym $search+Shift+$right    move right
-bindsym $search+a               focus parent
-bindsym $search+f fullscreen
-bindsym $alt+tab                focus right
-bindsym Shift+$alt+tab          focus left
+bindsym $window+$down           focus down
+bindsym $window+$up             focus up
+bindsym $window+$right          focus right
+bindsym $window+$left           focus left
+bindsym $window+Shift+$left     move left
+bindsym $window+Shift+$down     move down
+bindsym $window+Shift+$up       move up
+bindsym $window+Shift+$right    move right
+bindsym $window+a               focus parent
+bindsym $window+f fullscreen
+bindsym $window+tab                focus right
+bindsym Shift+$window+tab          focus left
 
-#bindsym $search+b splith
-#bindsym $search+e layout toggle split
-#bindsym $search+s layout stacking
-#bindsym $search+v splitv
-#bindsym $search+w layout tabbed
+#bindsym $window+b splith
+#bindsym $window+e layout toggle split
+#bindsym $window+s layout stacking
+#bindsym $window+v splitv
+#bindsym $window+w layout tabbed
 
 
-bindsym $search+Shift+c         reload
-bindsym $search+Shift+e         exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'
-bindsym $search+Shift+q kill
+bindsym $window+Shift+c         reload
+bindsym Mod1+e               exec swaynag -t warning -m '1Exit Sway?' -b 'Yes' 'swaymsg exit'
+bindsym Mod2+e               exec swaynag -t warning -m '2Exit Sway?' -b 'Yes' 'swaymsg exit'
+bindsym Mod3+e               exec swaynag -t warning -m '3Exit Sway?' -b 'Yes' 'swaymsg exit'
+bindsym Mod4+e               exec swaynag -t warning -m '4Exit Sway?' -b 'Yes' 'swaymsg exit'
+bindsym $window+Shift+q kill
 
-floating_modifier $search normal
+floating_modifier $window normal
 
 ################################################################################
 # Resizing
-bindsym $search+r mode "resize"
+bindsym $window+r mode "resize"
 
 mode "resize" {
     bindsym $left resize shrink width 10px
