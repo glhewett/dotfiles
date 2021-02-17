@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+. ${HOME}/.zsh/functions/check-version
+SCRIPT_VERSION=1
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+asdf plugin add ripgrep
+asdf install ripgrep 11.0.2
+asdf global ripgrep 11.0.2
+
+updateVersion
+

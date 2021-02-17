@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+. ${HOME}/.zsh/functions/check-version
+SCRIPT_VERSION=1
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+asdf plugin add cmake https://github.com/srivathsanmurali/asdf-cmake.git
+asdf install cmake 3.16.3
+asdf global cmake 3.16.3
+
+updateVersion
+

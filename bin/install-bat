@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+. ${HOME}/.zsh/functions/check-version
+SCRIPT_VERSION=1
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+asdf plugin add bat
+asdf install bat 0.12.1
+asdf global bat 0.12.1
+
+updateVersion

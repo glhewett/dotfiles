@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+# load function
+. ${HOME}/.zsh/functions/check-version
+
+SCRIPT_VERSION=1
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+mkdir -p ~/local/src || exit 1
+cd ~/local/src || exit 1
+
+
+VERSION=1.8.0
+curl -L -O "https://github.com/cisco/openh264/archive/v${VERSION}.tar.gz"
+tar -zxf v${VERSION}.tar.gz || exit 1
+rm -f v${VERSION}.tar.gz || exit 1
+cd openh264-${VERSION} || exit 1
+sed -i "s|\/usr\/local|${HOME}\/local|g" Makefile
+make -j4 OS=linux ARCH=x86_64
+make install
+
+updateVersion

@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+. ${HOME}/.zsh/functions/check-version
+SCRIPT_VERSION=1
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+asdf plugin add python
+asdf install python 3.8.7
+asdf global python 3.8.7
+
+updateVersion
+

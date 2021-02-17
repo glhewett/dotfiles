@@ -1,3 +1,5 @@
+#!/bin/sh
+
 touch ${HOME}/.check-version
 
 build-asdf
@@ -6,6 +8,7 @@ build-vim
 build-ctags
 build-cmake
 build-ag
+build-rcm
+build-gtest
 
 asdf plugin-update --all
-asdf install
