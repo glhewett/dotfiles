@@ -2,6 +2,7 @@
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 env:
   TERM: xterm-256color
+
 window:
   dimensions:
     columns: 0
@@ -11,36 +12,92 @@ window:
     y: 0
   dynamic_padding: true
   decorations: full
-  startup_mode: Windowed
+  startup_mode: SimpleFullscreen
   dynamic_title: true
+
 scrolling:
   history: 0
   multiplier: 3
+
 font:
   normal:
-    family: Inconsolata for Powerline
+    family: "Inconsolata for Powerline"
+    style: Medium
   bold:
-    family: Inconsolata for Powerline
+    family: "Inconsolata for Powerline"
+    style: BoldForPowerline
   italic:
-    family: Inconsolata for Powerline
-  size: 22.0
+    family: "Inconsolata for Powerline"
+    style: Medium
+  size: 14.0
   offset:
     x: 0
     y: 0
   glyph_offset:
-    x: 0
-    y: 0
-  use_thin_strokes: true
-draw_bold_text_with_bright_colors: false
+    x: 2 
+    y: 2 
+  use_thin_strokes: false
+
+draw_bold_text_with_bright_colors: true
+
 bell:
   animation: EaseOutExpo
   color: '0xffffff'
   duration: 0
-background_opacity: 1.0
+
+# Base16 Tomorrow 256 - alacritty color config
+# Chris Kempson (http://chriskempson.com)
+colors:
+  # Default colors
+  primary:
+    background: '0xffffff'
+    foreground: '0x4d4d4c'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0xffffff'
+    cursor: '0x4d4d4c'
+
+  # Normal colors
+  normal:
+    black:   '0xffffff'
+    red:     '0xc82829'
+    green:   '0x718c00'
+    yellow:  '0xeab700'
+    blue:    '0x4271ae'
+    magenta: '0x8959a8'
+    cyan:    '0x3e999f'
+    white:   '0x4d4d4c'
+
+  # Bright colors
+  bright:
+    black:   '0x8e908c'
+    red:     '0xc82829'
+    green:   '0x718c00'
+    yellow:  '0xeab700'
+    blue:    '0x4271ae'
+    magenta: '0x8959a8'
+    cyan:    '0x3e999f'
+    white:   '0x1d1f21'
+
+  indexed_colors:
+    - { index: 16, color: '0xf5871f' }
+    - { index: 17, color: '0xa3685a' }
+    - { index: 18, color: '0xe0e0e0' }
+    - { index: 19, color: '0xd6d6d6' }
+    - { index: 20, color: '0x969896' }
+    - { index: 21, color: '0x282a2e' }
+
 key_bindings:
-  - { key: W,        mods: Control,       action: Quit                         }
-  - { key: N,        mods: Alt,           action: SpawnNewInstance             }
-  - { key: Return,   mods: Alt,       action: ToggleFullscreen             }
+  - { key: V,        mods: Command,       action: Paste                        }
+  - { key: C,        mods: Command,       action: Copy                         }
+  - { key: Q,        mods: Command,       action: Quit                         }
+  - { key: N,        mods: Command,       action: SpawnNewInstance             }
+  - { key: T,        mods: Command,       action: SpawnNewInstance             } 
+  - { key: Return,   mods: Command,       action: ToggleFullscreen             }
+  - { key: Equals,   mods: Command,       action: IncreaseFontSize             }
+  - { key: Minus,    mods: Command,       action: DecreaseFontSize             }
+  - { key: 0,        mods: Command,       action: ResetFontSize                }
   - { key: Home,                          chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                          chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                           chars: "\x1bOF",   mode: AppCursor   }
@@ -105,7 +162,6 @@ mouse:
   url:
     launcher:
       program: open
-      args: ["-a Firefox"]
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
@@ -127,7 +183,7 @@ shell:
 debug:
   render_timer: false
   persistent_logging: false
-  log_level: None
+  log_level: OFF
   print_events: false
 
-# vim: nospell
+# vim: nospell tw=132 showc
