@@ -1,2 +1,19 @@
 [[ -f ~/.fzf.zsh ]]    && source ~/.fzf.zsh
 [[ -f ~/.zshrc.work ]] && source ~/.zshrc.work
+
+# list directories in my run directories by order.  Assmumes that directories in
+# the run directory are prepended with timestamp.
+function list-runs()
+{
+  if [ -z $1 ]; then
+    find ${HOME}/run -maxdepth 1 -type d | sort -r
+  else
+    find ${HOME}/run -maxdepth 1 -type d | grep $1 | sort -r
+  fi
+}
+
+# go to the newest run directory
+function last-run()
+{
+  cd $(list-runs $1 | sed -n 1p)
+}
