@@ -25,5 +25,4 @@ Plug 'tpope/vim-vinegar' " enhancements to netrw integrations
 Plug 'vim-airline/vim-airline' " the bottom ui
 Plug 'vim-airline/vim-airline-themes' " bottom ui themes
 Plug 'xenoterracide/html.vim'
-Plug 'ilyachur/cmake4vim'
-Plug 'junegunn/seoul256.vim'
+Plug 'fatih/vim-go'
