@@ -1,5 +1,5 @@
 set vb
 set guioptions-=T
 set guioptions+=c
-colorscheme Tomorrow-Night
-set guifont=InconsolataGoNerdFontCompleteM-Regular:h18
+colorscheme Tomorrow
+set guifont=Inconsolata-Light:h18

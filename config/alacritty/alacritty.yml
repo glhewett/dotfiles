@@ -16,7 +16,7 @@ window:
   dynamic_title: true
 
 scrolling:
-  history: 0
+  history: 10000
   multiplier: 3
 
 font:
@@ -93,7 +93,7 @@ key_bindings:
   - { key: C,        mods: Command,       action: Copy                         }
   - { key: Q,        mods: Command,       action: Quit                         }
   - { key: N,        mods: Command,       action: SpawnNewInstance             }
-  - { key: T,        mods: Command,       action: SpawnNewInstance             } 
+  - { key: T,        mods: Command,       action: SpawnNewInstance             }
   - { key: Return,   mods: Command,       action: ToggleFullscreen             }
   - { key: Equals,   mods: Command,       action: IncreaseFontSize             }
   - { key: Minus,    mods: Command,       action: DecreaseFontSize             }
@@ -165,7 +165,7 @@ mouse:
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-  save_to_clipboard: false
+  save_to_clipboard: true
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
@@ -177,7 +177,7 @@ cursor:
 live_config_reload: true
 
 shell:
-  program: /usr/local/bin/zsh
+  program: zsh
 
 debug:
   render_timer: false
