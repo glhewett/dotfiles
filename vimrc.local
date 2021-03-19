@@ -1,7 +1,8 @@
 " do not connect to x server
 set clipboard=exclude:.*
 
-set modelines=2
+set modelines=1
+set modeline
 set nowrap
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -11,7 +12,6 @@ nnoremap <C-l> <C-w>l
 let g:netrw_banner = 0
 
 command! -nargs=* Wrap set wrap linebreak nolist tw=0
-
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
