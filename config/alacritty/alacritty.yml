@@ -21,7 +21,7 @@ scrolling:
 
 font:
   use_thin_strokes: true
-  size: 14.0
+  size: 18.0
   normal:
     family: "Inconsolata"
     style: "Light"
