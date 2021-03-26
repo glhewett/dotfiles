@@ -12,3 +12,9 @@ if [ -n "$DISPLAY" ]; then     # the DISPLAY variable is set
         fi
     fi
 fi
+
+# SOURCES:
+# https://unix.stackexchange.com/questions/178513/forwarding-x11-not-working-error-cant-open-display-localhost11-0
+# https://apple.stackexchange.com/questions/48505/how-to-prevent-warnings-like-no-xauth-data-when-doing-ssh-from-os-x-to-other-mac
+#
+# vim: tw=0
