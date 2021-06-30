@@ -26,3 +26,4 @@ Plug 'vim-airline/vim-airline' " the bottom ui
 Plug 'vim-airline/vim-airline-themes' " bottom ui themes
 Plug 'xenoterracide/html.vim'
 Plug 'fatih/vim-go'
+Plug 'dracula/vim', { 'as': 'dracula' }
