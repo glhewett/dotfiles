@@ -17,3 +17,10 @@ function last-run()
 {
   cd $(list-runs $1 | sed -n 1p)
 }
+
+# change the title for xterm windows
+case $TERM in
+    xterm*)
+        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+        ;;
+esac
