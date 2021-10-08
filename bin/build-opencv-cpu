@@ -4,7 +4,7 @@
 . ${HOME}/.zsh/functions/check-version
 
 SCRIPT_VERSION=3
-VERSION=4.5.1
+VERSION=4.5.0
 
 checkVersion $(basename $0) $SCRIPT_VERSION
 

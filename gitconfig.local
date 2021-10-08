@@ -3,7 +3,7 @@
 [user]
   email = glh@twoutah.com
   name = Greg Hewett
-  signingkey = 1D05DEE58F7A6780
+  signingkey = 46D8D19D9223834C
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
