@@ -3,7 +3,7 @@
 # load function
 . ${HOME}/.zsh/functions/check-version
 
-SCRIPT_VERSION=1
+SCRIPT_VERSION=2
 checkVersion $(basename $0) $SCRIPT_VERSION
 
 mkdir -p ~/local/src || exit 1
@@ -16,8 +16,8 @@ curl -L -O "https://github.com/google/googletest/archive/release-${VERSION}.tar.
 tar -zxf release-${VERSION}.tar.gz || exit 1
 rm -f release-${VERSION}.tar.gz || exit 1
 cd googletest-release-${VERSION} || exit 1
-cmake -S . -B build -DCMAKE_INSTALL_PREFIX=$HOME/local || exit 1
+cmake -S . -B build -DCMAKE_INSTALL_PREFIX=/usr/local || exit 1
 cmake --build build --parallel 4 || exit 1
-cmake --build build --target install || exit 1
+sudo cmake --build build --target install || exit 1
 
 updateVersion

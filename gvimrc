@@ -2,4 +2,4 @@ set vb
 set guioptions-=T
 set guioptions+=c
 colorscheme dracula
-set guifont=Inconsolata-Light:h18
+set guifont=Inconsolata\ Medium\ 14
