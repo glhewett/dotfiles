@@ -10,3 +10,10 @@ the directions on thoughtbot/dotfiles repo, and clone this repo next to it.
 ```
 pacman -S vim tmux bat ripgrep bat
 ```
+
+
+# asdf
+
+```
+asdf plugin-add rust https://github.com/code-lever/asdf-rust.git
+```

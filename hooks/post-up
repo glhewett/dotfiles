@@ -1,6 +1,4 @@
 #!/bin/sh
-
 touch ${HOME}/.check-version
-
 build-asdf
 asdf plugin-update --all
