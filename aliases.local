@@ -20,7 +20,14 @@ alias keys='ssh-add -l'
 alias add-ssh-key='ssh-add -K ~/.ssh/id_ed25519'
 alias create-ssh-key='ssh-keygen -o -a 100 -t ed25519 -f id_ed25519 -C "greg@greghewett.com"'
 
+alias tf='terraform'
+alias tfw='terraform workspace'
+alias tfls='terraform workspace list'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+
 # Include custom aliases
 if [[ -f ~/.aliases.work ]]; then
   source ~/.aliases.work
 fi
+

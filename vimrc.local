@@ -46,4 +46,4 @@ let g:airline_powerline_fonts = 0
 autocmd BufNewFile CMakeLists.txt 0r ~/.skeletons/CMakeLists.txt
 autocmd BufNewFile *.cpp 0r ~/.skeletons/cpp.cpp
 
-colorscheme Tomorrow
+colorscheme Tomorrow-Night
