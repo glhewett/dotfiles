@@ -1,2 +1,7 @@
 ripgrep
---git https://github.com/sharkdp/bat
+git-delta
+bat
+fd
+du-dust
+difftastic
+hexyl
