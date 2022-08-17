@@ -1,32 +1,51 @@
-Plug 'airblade/vim-gitgutter' " shows git changes in the gutter
-Plug 'andypayne/vim-checkbox'
-Plug 'chriskempson/vim-tomorrow-theme'  " default theme I use
+" General Editor
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim' " obeys editorconfig
 Plug 'godlygeek/tabular'
-Plug 'groenewege/vim-less'
-Plug 'kana/vim-operator-user'
-Plug 'maksimr/vim-jsbeautify' " tools for beautifying js and json
-Plug 'mattn/gist-vim'
-Plug 'mattn/webapi-vim'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'mxw/vim-jsx'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'rhysd/vim-clang-format'
-Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-classpath'
-Plug 'tpope/vim-dispatch' " async tasks
 Plug 'tpope/vim-dotenv'  " .env support
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired' " shortcuts [q ]q
-Plug 'tpope/vim-vinegar' " enhancements to netrw integrations
+Plug 'kana/vim-operator-user'
+
+" Async
+Plug 'tpope/vim-dispatch' " async tasks
+Plug 'skywind3000/asyncrun.vim'
+
+" UI
 Plug 'vim-airline/vim-airline' " the bottom ui
 Plug 'vim-airline/vim-airline-themes' " bottom ui themes
-Plug 'xenoterracide/html.vim'
-Plug 'fatih/vim-go'
+
+" Files
+Plug 'tpope/vim-vinegar' " enhancements to netrw integrations
+
+" Git & Github
+Plug 'airblade/vim-gitgutter' " shows git changes in the gutter
+Plug 'mattn/gist-vim'
+
+" Themes
+Plug 'chriskempson/vim-tomorrow-theme'  " default theme I use
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'pangloss/vim-javascript'    " JavaScript support
+
+" Web
+Plug 'groenewege/vim-less'
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maksimr/vim-jsbeautify' " tools for beautifying js and json
+Plug 'mattn/webapi-vim'
 Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'tpope/vim-liquid'
+Plug 'xenoterracide/html.vim'
+
+" C++
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'rhysd/vim-clang-format'
+
+" Go
+Plug 'fatih/vim-go'
