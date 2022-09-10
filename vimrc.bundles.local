@@ -27,6 +27,7 @@ Plug 'mattn/gist-vim'
 " Themes
 Plug 'chriskempson/vim-tomorrow-theme'  " default theme I use
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'NLKNguyen/papercolor-theme'
 
 " Web
 Plug 'groenewege/vim-less'
