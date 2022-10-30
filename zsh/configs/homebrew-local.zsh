@@ -2,6 +2,6 @@
 
 if [ -d /opt/homebrew/bin ]
 then
-    export PATH=$PATH:/opt/homebrew/bin
+    export PATH=/opt/homebrew/bin:$PATH
 fi
 
