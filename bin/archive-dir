@@ -1,0 +1,22 @@
+#!/bin/bash
+
+DATE=$(date +'%Y-%m-%d')
+DEST=$HOME/archives
+DIR=$1
+FILENAME=${DATE}_$(realpath --relative-to="$HOME" "./$DIR").tar.gz
+FILENAME=$(echo $FILENAME | sed 's/\//-/g')
+
+if [ ! -d "$DEST" ]
+then
+    echo "$DEST does not exist. Exiting."
+    exit 1
+fi
+
+if [ -e "$DEST/$FILENAME" ]
+then
+    echo "$DEST/$FILENAME already exists. Exiting."
+    exit 1
+fi
+
+echo "Archiving $DIR to $DEST/$FILENAME"
+tar -zcvf "$DEST/$FILENAME" "$DIR" 

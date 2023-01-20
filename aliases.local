@@ -1,5 +1,4 @@
 alias path='echo $PATH | tr -s ":" "\n"'
-alias backupdir="tar -zcvf \$1-`date +'%Y-%m-%d'`.tar.gz \$1"
 alias home="clear && cd \$1"
 alias add2path="export PATH=$PATH:$PWD"
 alias brews='brew list -1'
