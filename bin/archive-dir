@@ -19,4 +19,5 @@ then
 fi
 
 echo "Archiving $DIR to $DEST/$FILENAME"
-tar -zcvf "$DEST/$FILENAME" "$DIR" 
+set +x
+tar -zcf "$DEST/$FILENAME" "$DIR" 
