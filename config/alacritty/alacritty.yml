@@ -14,14 +14,13 @@ window:
   decorations: full
   startup_mode: Windowed
   dynamic_title: true
-  gtk_theme_variant: dark
+  decorations_theme_variant: dark
 
 scrolling:
   history: 10000
   multiplier: 3
 
 font:
-  use_thin_strokes: true
   size: 20.0
   normal:
     family: "Inconsolata"
