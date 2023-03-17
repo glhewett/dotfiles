@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+base58() {
+
+    if [ -z "$1" ] 
+    then
+        echo "Usage: base58 <length>"
+        return
+    fi
+
+    chars=123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
+
+    for i in {1..8}
+    do
+        echo -n "${chars:RANDOM%${#chars}:1}"
+    done
+    echo
+}

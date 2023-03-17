@@ -54,3 +54,5 @@ augroup markdown_files
     autocmd FileType markdown set wrap linebreak nolist tw=0
 augroup END
 
+set tags=./tags;/
+

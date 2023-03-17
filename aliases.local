@@ -25,6 +25,10 @@ alias tfls='terraform workspace list'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
 
+# cmake aliases
+alias cmr="rm -rf build && cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+alias cmb="cmake --build build --parallel 6"
+
 # Include custom aliases
 if [[ -f ~/.aliases.work ]]; then
   source ~/.aliases.work
