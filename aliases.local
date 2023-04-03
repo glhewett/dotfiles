@@ -27,6 +27,7 @@ alias tfa='terraform apply'
 
 # cmake aliases
 alias cmr="rm -rf build && cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+alias cmrv="rm -rf build && cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake -DBUILD_OPENCV=ON"
 alias cmb="cmake --build build --parallel 6"
 
 # Include custom aliases
