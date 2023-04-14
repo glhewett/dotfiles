@@ -25,18 +25,35 @@ alias tfls='terraform workspace list'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
 
-# cd
+##################################################
+# filesystem navigation
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+##################################################
 # cmake aliases
-alias cmr="rm -rf build && cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
-alias cmra="rm -rf build && cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake -DBUILD_OPENCV=ON"
-alias cmrv="rm -rf build && cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake"
+
+# remove cache and build new cache
+alias cmr="rm -rf build && cmake -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+
+# remove cache and build new cache using vcpkg
+alias cmrv="rm -rf build && cmr -DTESTING=ON -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake"
+
+# build default
 alias cmb="cmake --build build --parallel 6"
+
+# build and run tests
+alias cmt="cmb --target all --target test"
+
+# build and run install
+alias cmi="cmb --target all --target install"
+
+# list cmake options
+alias cmo="cmake -L build"
 
 # Include custom aliases
 if [[ -f ~/.aliases.work ]]; then
   source ~/.aliases.work
 fi
 
+# vim:set tw=0:
