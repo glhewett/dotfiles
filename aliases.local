@@ -25,6 +25,10 @@ alias tfls='terraform workspace list'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
 
+# cd
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
 # cmake aliases
 alias cmr="rm -rf build && cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
 alias cmra="rm -rf build && cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake -DBUILD_OPENCV=ON"
