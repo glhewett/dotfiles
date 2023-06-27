@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+
+# load function
+. ${HOME}/.zsh/functions/check-version
+
+SCRIPT_VERSION=1
+checkVersion $(basename $0) $SCRIPT_VERSION
+
+mkdir -p ${HOME}/local/src || exit 1
+cd ~/local/src || exit 1
+rm -rf cjose || exit 1
+git clone --branch glhewett-clang14 --depth 1 \
+    https://github.com/glhewett/cjose.git || exit 1
+cd cjose || exit 1
+
+./configure CFLAGS="-g -O0 -DDEBUG" CFLAGS="-I/usr/local/include" \
+    --prefix ${HOME}/local \
+    --with-openssl=/opt/homebrew/Cellar/openssl@1.1/1.1.1t \
+    --with-jansson=/opt/homebrew/Cellar/jansson/2.14 \
+    --disable-shared \
+    || exit 1
+make || exit 1
+make test || exit 1
+#make install || exit 1
+
+updateVersion

@@ -40,7 +40,7 @@ set -g update-environment "DISPLAY SSH_ASKPASS SSH_AGENT_PID SSH_CONNECTION WIND
 # set the current pane to the current path basename
 set-option -g status-interval 5
 set-option -g automatic-rename on
-set-option -g automatic-rename-format '#{b:pane_current_path}'
+set-option -g automatic-rename-format '#{b:pane_current_path} (#{pane_current_command})'
 
 # Tomorrow-Night
 # foreground = "#c5c8c6"
@@ -89,10 +89,10 @@ set-window-option -g window-status-style fg="#1d1f21"        # background
 set-window-option -g window-status-style none
 
 # fg background / bg comment
-set-window-option -g window-status-format "#[bg=#969896,fg=#f0c674] \u2261  #W#F  \u2261 #[default]"
+set-window-option -g window-status-format "#[bg=#969896,fg=#f0c674] \u2261  #W #F\u2261 #[default]"
 set-window-option -g window-status-current-style none
 
 # bg background / num blue / title yellow
-set-window-option -g window-status-current-format "#[fg=#8abeb7,bg=#1d1f21] \u2261  #W#F  \u2261 #[default]" 
+set-window-option -g window-status-current-format "#[fg=#8abeb7,bg=#1d1f21] \u2261  #W #F\u2261 #[default]" 
 
 # vim:set tw=0:

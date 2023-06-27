@@ -44,7 +44,6 @@ Plug 'prettier/vim-prettier', {
 Plug 'tpope/vim-liquid'
 Plug 'xenoterracide/html.vim'
 Plug 'posva/vim-vue'
-Plug 'posva/vim-vue'
 Plug 'preservim/vim-markdown'
 
 " C++
