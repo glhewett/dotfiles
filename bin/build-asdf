@@ -1,11 +1,11 @@
 #!/usr/bin/env zsh
 . ${HOME}/.zsh/functions/check-version
 
-SCRIPT_VERSION=5
+SCRIPT_VERSION=6
 checkVersion $(basename $0) $SCRIPT_VERSION
 
 rm -rf $HOME/.asdf
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.1
 . ~/.zsh/configs/asdf.zsh
 
 updateVersion
