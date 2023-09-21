@@ -37,7 +37,7 @@ alias ....="cd ../../.."
 alias cmr="rm -rf build && cmake -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
 
 # remove cache and build new cache using vcpkg
-alias cmrv="rm -rf build && cmr -DTESTING=ON -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake"
+alias cmrv="cmr -DTESTING=ON -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake"
 
 # build default
 alias cmb="cmake --build build --parallel 6"
