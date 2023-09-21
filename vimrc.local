@@ -45,8 +45,10 @@ set statusline+=%*
 
 let g:airline_powerline_fonts = 0
 
+" manage the skeleton files.
 autocmd BufNewFile CMakeLists.txt 0r ~/.skeletons/CMakeLists.txt
 autocmd BufNewFile *.cpp 0r ~/.skeletons/cpp.cpp
+autocmd BufNewFile .projections.json 0r ~/.skeletons/projections.json
 
 colorscheme Tomorrow-Night
 

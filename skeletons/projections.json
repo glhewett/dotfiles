@@ -1,0 +1,22 @@
+{
+  "src/*.hpp": {
+    "type": "header",
+    "alternate": "src/{}.cpp",
+    "dispatch": "cmake --build build"
+  },
+  "src/*.cpp": {
+    "type": "source",
+    "alternate": "src/{}.hpp",
+    "dispatch": "cmake --build build"
+  },
+  "doc/*.txt": {
+    "type": "doc"
+  },
+  "README.markdown": {
+    "type": "doc"
+  },
+  "CMakeLists.txt": {
+    "type": "build",
+    "dispatch": "cmake -B build -DTESTING=ON -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake"
+  }
+}
