@@ -48,6 +48,7 @@ let g:airline_powerline_fonts = 0
 " manage the skeleton files.
 autocmd BufNewFile CMakeLists.txt 0r ~/.skeletons/CMakeLists.txt
 autocmd BufNewFile *.cpp 0r ~/.skeletons/cpp.cpp
+autocmd BufNewFile *.hpp 0r ~/.skeletons/cpp.hpp
 autocmd BufNewFile .projections.json 0r ~/.skeletons/projections.json
 
 colorscheme Tomorrow-Night
@@ -58,3 +59,14 @@ augroup END
 
 set tags=./tags;/
 
+" reformatting code
+function! Format() abort
+    :echo "hello, world!"
+endfunction
+nnoremap <silent> <Leader>f :call Format()<CR>
+command Format :call Format()<CR>
+
+"edit vimrc
+:nnoremap <leader>ev :vsplit $MYVIMRC.local<cr>
+:nnoremap <leader>rv :source $vvVIMRC.local<cr>
+"
