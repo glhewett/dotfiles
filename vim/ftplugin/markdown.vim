@@ -1,0 +1,11 @@
+" Enable spellchecking
+setlocal spell
+setlocal wrap
+setlocal linebreak
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal textwidth=0
+setlocal expandtab
+setlocal nolist
+setlocal nofoldenable
+setlocal nonumber

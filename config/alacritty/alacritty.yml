@@ -14,7 +14,7 @@ window:
   decorations: full
   startup_mode: Windowed
   dynamic_title: true
-  decorations_theme_variant: dark
+  decorations_theme_variant: Dark
 
 scrolling:
   history: 10000

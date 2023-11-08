@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Fix SSH auth socket location so agent forwarding works with tmux
-if [ -e  "$SSH_AUTH_SOCK" ]
-then
-    ln -vsf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
-fi
-
 if [ -n "$DISPLAY" ]; then     # the DISPLAY variable is set
     if read proto cookie; then # proto and magic key waiting on STDIN
         if [ `echo $DISPLAY | cut -c1-10` = 'localhost:' ]; then

@@ -32,10 +32,10 @@ bind C-l send-keys 'C-l' \; display "Cleared!"
 bind-key T swap-window -t 1
 
 # Remove SSH_AUTH_SOCK to disable auto-resetting of Tmux variable
-set -g update-environment "DISPLAY SSH_ASKPASS SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"
+set -g update-environment "DISPLAY SSH_ASKPASS SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY SSH_AUTH_SOCK"
 
 # fix ssh agent when tmux is detached
-setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+# setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 
 # set the current pane to the current path basename
 set-option -g status-interval 5
