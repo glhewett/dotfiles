@@ -21,7 +21,7 @@ scrolling:
   multiplier: 3
 
 font:
-  size: 20.0
+  size: 24.0
   normal:
     family: "Inconsolata"
     style: "Regular"
@@ -30,7 +30,7 @@ font:
     style: "SemiBold"
   italic:
     family: "Inconsolata"
-    style: "ExtraLight"
+    style: "Italic"
   offset:
     x: 0 
     y: 0

@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
-BACKUP_FILES="/home"
+BACKUP_FILES="$HOME/repos/"
 DEST=$HOME/.local-backups
 HOST=$(hostname -s)
 DAY=$(date "+%Y%m%d")
 FULL_BACKUP=0
+FULL_ARCHIVE_FILE="$DEST/$DAY-$HOST-full.tar.bz"
 
 echo $ARCHIVE_FILE
 
-if [ ! -e "$DEST" ]
+if [ ! -e "$FULL_ARCHIVE_FILE" ]
 then
     echo "Creating destination directory and creating full backup."
     mkdir -p "$DEST" || exit 1
@@ -17,8 +18,9 @@ fi
 
 if [ $FULL_BACKUP -eq 1 ] 
 then
-    ARCHIVE_FILE="$DAY-$HOST-full.tar.bz"
     echo "Backing up to $ARCHIVE_FILE"
-    tar -acvf $ARCHIVE_FILE $BACKUP_FILES
+    tar -acf $ARCHIVE_FILE $BACKUP_FILES
+else
+
 fi
 
