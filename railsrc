@@ -1,0 +1,9 @@
+--database=sqlite3
+--skip-action-mailer
+--skip-action-mailbox
+--skip-action-job
+--skip-active-storage
+--skip-action-cable
+--skip-hotwire
+--css=bulma
+--template=~/repos/dotfiles-local/rails_template.rb
