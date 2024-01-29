@@ -43,19 +43,57 @@ set statusline+=%#warningmsg#
 set statusline+=%{LinterStatus()}
 set statusline+=%*
 
-let g:airline_powerline_fonts = 0
+" configure lightline
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \   'active': {
+      \     'left': [ [ 'mode', 'paste' ],
+      \               [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \   },
+      \   'component_function': {
+      \     'gitbranch': 'FugitiveHead'
+      \   },
+      \ }
+" end configure lightline
 
-" manage the skeleton files.
+" configure markdown
+autocmd FileType markdown setlocal spell wrap linebreak tabstop=4 shiftwidth=4 textwidth=0 expandtab nolist nofoldenable nonumber
+" end configure markdown
+
+" configure ruby
+autocmd FileType ruby setlocal nospell nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab list nofoldenable number
+" end configure ruby
+
+" configure html
+autocmd FileType html setlocal nospell nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab list nofoldenable number
+" end configure html
+
+" configure swift
+autocmd FileType swift setlocal nowrap nolinebreak tabstop=4 shiftwidth=4 textwidth=0 expandtab nolist foldenable number
+" endconfigure swift
+
+" configure yaml
+autocmd FileType yaml setlocal nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab nolist foldenable number
+" end configure yaml
+
+" configure cpp
+autocmd BufNewFile .projections.json 0r ~/.skeletons/projections.json
 autocmd BufNewFile CMakeLists.txt 0r ~/.skeletons/CMakeLists.txt
 autocmd BufNewFile *.cpp 0r ~/.skeletons/cpp.cpp
 autocmd BufNewFile *.hpp 0r ~/.skeletons/cpp.hpp
-autocmd BufNewFile .projections.json 0r ~/.skeletons/projections.json
+autocmd FileType cpp setlocal nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab list nofoldenable number
+" end configure cpp
 
+" configure vim format
+autocmd FileType vim setlocal nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab list nofoldenable number
+:nnoremap <leader>ev :vsplit $MYVIMRC.local<cr>
+:nnoremap <leader>rv :source $MYVIMRC.local<cr>
+" end configure vim format
+
+" configure colors
 colorscheme Tomorrow-Night
-
-augroup markdown_files
-    autocmd FileType markdown set wrap linebreak nolist tw=0
-augroup END
+" end configure colors
 
 set tags=./tags;/
 
@@ -66,7 +104,4 @@ endfunction
 nnoremap <silent> <Leader>f :call Format()<CR>
 command Format :call Format()<CR>
 
-"edit vimrc
-:nnoremap <leader>ev :vsplit $MYVIMRC.local<cr>
-:nnoremap <leader>rv :source $vvVIMRC.local<cr>
-"
+

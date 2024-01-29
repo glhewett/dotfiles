@@ -21,15 +21,15 @@ scrolling:
   multiplier: 3
 
 font:
-  size: 24.0
+  size: 20.0
   normal:
-    family: "Inconsolata"
-    style: "Regular"
+    family: "Monaspace Neon"
+    style: "Light"
   bold:
-    family: "Inconsolata"
-    style: "SemiBold"
+    family: "Monaspace Radon"
+    style: "Bold"
   italic:
-    family: "Inconsolata"
+    family: "Monaspace Neon"
     style: "Italic"
   offset:
     x: 0 

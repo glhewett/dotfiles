@@ -14,8 +14,7 @@ Plug 'tpope/vim-dispatch' " async tasks
 Plug 'skywind3000/asyncrun.vim'
 
 " UI
-Plug 'vim-airline/vim-airline' " the bottom ui
-Plug 'vim-airline/vim-airline-themes' " bottom ui themes
+Plug 'itchyny/lightline.vim'
 
 " Files
 Plug 'tpope/vim-vinegar' " enhancements to netrw integrations
@@ -26,15 +25,13 @@ Plug 'mattn/gist-vim'
 
 " Themes
 Plug 'chriskempson/vim-tomorrow-theme'  " default theme I use
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'NLKNguyen/papercolor-theme'
 
 " Web
 Plug 'groenewege/vim-less'
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'maksimr/vim-jsbeautify' " tools for beautifying js and json
 Plug 'mattn/webapi-vim'
-Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'MaxMEllon/vim-jsx-pretty' " JS and JSX syntax
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'    " JavaScript support
