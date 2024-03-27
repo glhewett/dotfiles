@@ -3,6 +3,9 @@ ADD_POSTGRES_ALIASES=0
 if [ -d "/usr/pgsql-9.6/bin" ]; then
   export PATH=/usr/pgsql-9.6/bin:$PATH
   ADD_POSTGRES_ALIASES=1
+elif [ -d "/opt/homebrew/opt/postgresql@16/bin" ]; then
+  export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+  ADD_POSTGRES_ALIASES=1
 fi
 
 # Homebrew Message:

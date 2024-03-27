@@ -57,36 +57,27 @@ let g:lightline = {
       \ }
 " end configure lightline
 
-" configure markdown
 autocmd FileType markdown setlocal spell wrap linebreak tabstop=4 shiftwidth=4 textwidth=0 expandtab nolist nofoldenable nonumber
-" end configure markdown
-
-" configure ruby
 autocmd FileType ruby setlocal nospell nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab list nofoldenable number
-" end configure ruby
-
-" configure html
 autocmd FileType html setlocal nospell nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab list nofoldenable number
-" end configure html
-
-" configure swift
 autocmd FileType swift setlocal nowrap nolinebreak tabstop=4 shiftwidth=4 textwidth=0 expandtab nolist foldenable number
-" endconfigure swift
-
-" configure yaml
 autocmd FileType yaml setlocal nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab nolist foldenable number
-" end configure yaml
+autocmd FileType rust setlocal nowrap nolinebreak tabstop=4 shiftwidth=4 textwidth=0 expandtab nolist foldenable number
+autocmd FileType toml setlocal nowrap nolinebreak tabstop=4 shiftwidth=4 textwidth=0 expandtab nolist foldenable number
+autocmd FileType cpp setlocal nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab list nofoldenable number
+autocmd FileType vim setlocal nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab list nofoldenable number
+
+" configure rust
+let g:rustfmt_autosave = 1
 
 " configure cpp
 autocmd BufNewFile .projections.json 0r ~/.skeletons/projections.json
 autocmd BufNewFile CMakeLists.txt 0r ~/.skeletons/CMakeLists.txt
 autocmd BufNewFile *.cpp 0r ~/.skeletons/cpp.cpp
 autocmd BufNewFile *.hpp 0r ~/.skeletons/cpp.hpp
-autocmd FileType cpp setlocal nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab list nofoldenable number
 " end configure cpp
 
 " configure vim format
-autocmd FileType vim setlocal nowrap nolinebreak tabstop=2 shiftwidth=2 textwidth=0 expandtab list nofoldenable number
 :nnoremap <leader>ev :vsplit $MYVIMRC.local<cr>
 :nnoremap <leader>rv :source $MYVIMRC.local<cr>
 " end configure vim format
@@ -104,4 +95,9 @@ endfunction
 nnoremap <silent> <Leader>f :call Format()<CR>
 command Format :call Format()<CR>
 
+" Codeium
+"let g:codeium_disable_bindings = 1
+"let g:codeium_manual = v:true
+
+" Copilot
 

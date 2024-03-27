@@ -49,3 +49,8 @@ Plug 'rhysd/vim-clang-format'
 
 " Go
 Plug 'fatih/vim-go'
+
+" AI
+Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
+"Plug 'github/copilot.vim'
+"
