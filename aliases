@@ -1,3 +1,26 @@
+# Unix
+alias ll="ls -al"
+alias ln="ln -v"
+alias mkdir="mkdir -p"
+alias e="$EDITOR"
+alias v="$VISUAL"
+
+# Bundler
+alias b="bundle"
+
+# Rails
+alias migrate="bin/rails db:migrate db:rollback && bin/rails db:migrate db:test:prepare"
+alias s="rspec"
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+
+# Easier navigation: ..., ...., ....., and -
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -="cd -"
+
 alias path='echo $PATH | tr -s ":" "\n"'
 alias home="clear && cd \$1"
 alias add2path="export PATH=$PATH:$PWD"
@@ -58,8 +81,12 @@ alias cmi="cmb --target all --target install"
 alias cmo="cmake -L build"
 
 # Include custom aliases
-if [[ -f ~/.aliases.work ]]; then
-  source ~/.aliases.work
+if [[ -f ~/.aliases.private ]]; then
+  source ~/.aliases.private
+fi
+
+if [[ -f ~/.aliases.local ]]; then
+  source ~/.aliases.local
 fi
 
 # vim:set tw=0:

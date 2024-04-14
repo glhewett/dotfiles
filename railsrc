@@ -6,4 +6,4 @@
 --skip-action-cable
 --skip-hotwire
 --css=bulma
---template=~/repos/dotfiles-local/rails_template.rb
+--template=~/repos/public-dotfiles/rails_template.rb
