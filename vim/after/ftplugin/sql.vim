@@ -1,9 +1,0 @@
-setlocal tw=0
-setlocal nowrap
-setlocal nolinebreak
-setlocal tabstop=2
-setlocal shiftwidth=2
-setlocal textwidth=0
-setlocal expandtab
-setlocal list
-setlocal number
