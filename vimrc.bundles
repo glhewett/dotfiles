@@ -1,0 +1,124 @@
+if &compatible
+  set nocompatible
+end
+
+" Remove declared plugins
+function! s:UnPlug(plug_name)
+  if has_key(g:plugs, a:plug_name)
+    call remove(g:plugs, a:plug_name)
+  endif
+endfunction
+command!  -nargs=1 UnPlug call s:UnPlug(<args>)
+
+let g:has_async = v:version >= 800 || has('nvim')
+
+call plug#begin('~/.vim/bundle')
+
+" Define bundles via Github repos
+Plug 'christoomey/vim-run-interactive'
+
+" If fzf has already been installed via Homebrew, use the existing fzf
+" Otherwise, install fzf. The `--all` flag makes fzf accessible outside of vim
+"if executable("brew")
+  "let g:brew_fzf_path = trim(system("brew --prefix fzf"))
+"endif
+"
+"if exists("g:brew_fzf_path") && isdirectory(g:brew_fzf_path)
+  "Plug g:brew_fzf_path 
+"else
+  "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"endif
+
+"Plug 'junegunn/fzf.vim'
+"Plug 'elixir-lang/vim-elixir'
+"Plug 'fatih/vim-go'
+" Plug 'janko-m/vim-test'
+Plug 'pangloss/vim-javascript'
+Plug 'pbrisbin/vim-mkdir'
+" Plug 'slim-template/vim-slim'
+" Plug 'tpope/vim-bundler'
+" Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-projectionist'
+" Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+" Plug 'tpope/vim-surround'
+" Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/tComment'
+Plug 'ctrlpvim/ctrlp.vim'
+
+" General Editor
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'editorconfig/editorconfig-vim' " obeys editorconfig
+Plug 'godlygeek/tabular'
+" Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-dotenv'  " .env support
+" Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-unimpaired' " shortcuts [q ]q
+Plug 'kana/vim-operator-user'
+
+" Async
+Plug 'tpope/vim-dispatch' " async tasks
+Plug 'skywind3000/asyncrun.vim'
+
+" UI
+Plug 'itchyny/lightline.vim'
+
+" Files
+Plug 'tpope/vim-vinegar' " enhancements to netrw integrations
+
+" Git & Github
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter' " shows git changes in the gutter
+Plug 'mattn/gist-vim'
+
+" Themes
+Plug 'chriskempson/vim-tomorrow-theme'  " default theme I use
+
+" Web
+" Plug 'groenewege/vim-less'
+" Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maksimr/vim-jsbeautify' " tools for beautifying js and json
+" Plug 'mattn/webapi-vim'
+" Plug 'MaxMEllon/vim-jsx-pretty' " JS and JSX syntax
+" Plug 'mustache/vim-mustache-handlebars'
+" Plug 'mxw/vim-jsx'
+" Plug 'pangloss/vim-javascript'    " JavaScript support
+" Plug 'prettier/vim-prettier', {
+  " \ 'do': 'yarn install --frozen-lockfile --production',
+  " \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+" Plug 'tpope/vim-liquid'
+Plug 'xenoterracide/html.vim'
+" Plug 'posva/vim-vue'
+Plug 'preservim/vim-markdown'
+
+" C++
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'rhysd/vim-clang-format'
+
+" Go
+" Plug 'fatih/vim-go'
+
+" AI
+Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
+" Plug 'github/copilot.vim'
+
+" Plug 'mileszs/ack.vim'
+Plug 'hashivim/vim-terraform'
+
+if g:has_async
+  Plug 'dense-analysis/ale'
+endif
+
+if filereadable(expand("~/.vimrc.bundles.private"))
+  source ~/.vimrc.bundles.private
+endif
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call plug#end()
